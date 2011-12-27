@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec ssh-agent sh -c "/usr/bin/ssh-add ~/.ssh/purple.id_rsa && /usr/bin/bash"
+

@@ -1,0 +1,7 @@
+#!/bin/sh
+# The following commands can be both sourced and executed
+
+if [ -n "$( ssh-add -l | grep ~/.ssh/purple.id_rsa)" ]; then
+	ssh-add -d ~/.ssh/purple.id_rsa
+fi
+
