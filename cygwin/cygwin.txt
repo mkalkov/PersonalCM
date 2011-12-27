@@ -1,0 +1,41 @@
+##################
+## Cygwin notes ##
+##################
+
+
+## Downloading
+Web site:  http://cygwin.com/
+Installer: http://cygwin.com/setup.exe
+
+
+## Installing
+
+# Packages
+The default list of packages in Cygwin 1.7.9-1 is listed in CygwinMini_1.7.9-1.txt
+Build System dependencies**: openssh, gcc, make, gawk*
+Personal requirements: mintty*, screen, vim, git, git-completion
+* gawk and mintty are installed by default in recent versions of Cygwin
+** See the former list of dependencies in OldBuildSystemDependencies.txt
+
+# Instructions
+The following commands can be prefixed with "@call " and put into a bat file
+See "setup.exe --help" for other options
+> setup.exe --root C:\cygwin --quiet-mode --download --site ftp://cygwin.uib.no --local-install --local-package-dir C:\CygwinPackages --packages openssh, gcc, make, gawk, mintty, screen, vim, git, git-completion
+> regedit.exe /s RegistrySettingsForEclipseAndCygwin.reg
+
+
+## Starting
+> C: && cd \cygwin\bin && bash --login -i
+
+
+## Checking Cygwin version
+> cygcheck --check-setup --dump-only cygwin
+
+
+## Installed packages
+# List all installed packages
+> cygcheck --check-setup --dump-only
+# List files belonging to package 'bash'
+> cygcheck --list-package bash
+# Find package, which installed file '/usr/bin/bash.exe'
+> cygcheck --find-package /usr/bin/bash.exe
