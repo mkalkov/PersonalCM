@@ -1,7 +1,7 @@
 # The following commands should be sourced and not executed!
 
 if [ $(basename -- "$0") == "add-ssh-keys" ]; then
-	echo "Don't run this file, source it instead!" 
+	echo "Don't run this file, source it instead!"
 	exit 1
 fi
 
@@ -11,7 +11,7 @@ if [ ! -n "$SSH_AGENT_PID" ] || [ ! -n "$(ps -ef | grep $SSH_AGENT_PID)" ];  the
 		echo "Starting ssh agent..."
 		eval "`ssh-agent -s`"
 	fi
-fi	
+fi
 
 # Don't add the same key twice
 if [ ! -n "$( ssh-add -l | grep ~/.ssh/purple.id_rsa)" ]; then

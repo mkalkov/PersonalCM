@@ -1,0 +1,5 @@
+Host psgbg
+	User gitosis
+	HostName git.psgbg.se
+	IdentityFile ~/.ssh/purple.id_rsa
+

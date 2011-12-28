@@ -1,0 +1,10 @@
+Host *
+	AddressFamily inet
+	CheckHostIP yes
+	Protocol 2
+	GSSAPIAuthentication no
+	HostbasedAuthentication no
+	PubkeyAuthentication yes
+	KbdInteractiveAuthentication no
+	PasswordAuthentication no
+
