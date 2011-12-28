@@ -1,0 +1,11 @@
+##################
+## Git Commands ##
+##################
+
+# How to clone a repo
+git clone git@github.com:mkalkov/PersonalCM.git
+
+# How to push a particular version to remote repo
+# This will push HEAD^1 to the master branch in the origin remote
+git push origin HEAD^1:master
+
