@@ -1,0 +1,2 @@
+1. Add deploy scripts to the following CIs: csh, git and vim.
+2. Add Makefiles, which would simplify deployment and undeployment of several CIs at once
