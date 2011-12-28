@@ -9,3 +9,21 @@ git clone git@github.com:mkalkov/PersonalCM.git
 # This will push HEAD^1 to the master branch in the origin remote
 git push origin HEAD^1:master
 
+
+# Reviewing history
+####################
+
+# List changed files between two commits
+> git diff --name-status TAGNAME..HEAD | wc -l
+157
+
+# Show diff of all changes in a given file between two commits
+> git diff TAGNAME..HEAD src/my.java.package/Class.java
+
+# List commits which affected a given file
+> git whatchanged -n2 src/my.java.package/Class.java
+
+# Show diff of changes in a given file introduced by commit 'ca2dee'
+> git diff ca2dee^1..ca2dee src/my.java.package/Class.java
+
+
