@@ -1,11 +1,14 @@
 #!/bin/sh
 #
-# deploy - a script to deploy ssh settings
+# ssh/deploy - a script to deploy ssh settings
 #
-# Dependencies: POSIX shell, dirname, basename, "local" keyword
+# Dependencies: POSIX shell, dirname, basename
 #
-# Files:
 # $CMROOT
+#   |
+#   |- lib
+#   |   |
+#   |   \- common_functions
 #   |
 #   \- $CI
 #       |
@@ -23,12 +26,13 @@
 #       \- deploy
 #
 # Possible improvements
-#  + Add tab and newline detection to safety check in init_dirs()
+#  + Add a specific license
 #  + Add -h option to show help
 #  + Add -f option to force overwriting existing files
 #  + Add -c option to remove existing files
 #  + Add -d option to make a dry run
-#  + Generalize this script into a library and add a specific license
+#  + Generalize this script into a library
+#  + Create tests and specify a baseline
 
 
 CMROOT=""
@@ -36,18 +40,8 @@ CI="ssh"
 CIROOT=""
 
 
-function init_dirs () {
-  # See the following page for explanation of CMROOT magic
-  # http://stackoverflow.com/questions/8468519/can-a-shell-script-tell-what-directory-its-in-no-bashisms#8506790
-  # 2>&1 is there to catch errors spitted by cd in case $0 contains characters from IFS
-  CMROOT=$(cd $(dirname -- "$0")/.. 2>&1; pwd)
-  if [ "$CMROOT" != "${CMROOT% *}" ]; then
-    # Make sure there are no IFS characters in absolute path; needed for copy_bin_files() to work properly
-    echo "The path to the current script should not contain any spaces, tabs or newlines"
-    exit 1
-  fi
-  CIROOT="$CMROOT/$CI"
-}
+# Source init_dirs()
+. $(dirname -- "$0")/../lib/common_functions
 
 
 function write_ssh_config () {

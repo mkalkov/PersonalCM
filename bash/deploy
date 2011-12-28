@@ -1,0 +1,74 @@
+#!/bin/sh
+#
+# bash/deploy - a script to deploy bash settings
+#
+# Dependencies: POSIX shell, dirname, basename
+#
+# $CMROOT
+#   |
+#   |- lib
+#   |   |
+#   |   \- common_functions
+#   |
+#   \- $CI
+#       |
+#       \- deploy
+#
+# Possible improvements
+#  + Check if .bashrc and .bash_logout already contain desired modifictions
+#  + Add backup functionality
+#  + Add a specific license
+#  + Add -h option to show help
+#  + Add -c option to undo deployment
+#  + Add -d option to make a dry run
+#  + Generalize this script into a library
+#  + Create tests and specify a baseline
+
+
+CMROOT=""
+CI="bash"
+CIROOT=""
+
+
+# Source init_dirs()
+. $(dirname -- "$0")/../lib/common_functions
+
+
+function modify_bashrc () {
+  TARGETFILE="$HOME/.bashrc"
+  echo "Writing to $TARGETFILE"
+  touch "$TARGETFILE" 
+  echo '' >> $TARGETFILE
+  echo '# Following lines were appended by PersonalCM/bash/deploy' >> $TARGETFILE
+  echo 'export PATH=${PATH}:"/cygdrive/c/Program Files/Windows NT/Accessories/":~/bin/' >> $TARGETFILE
+  echo 'export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\[\e[33m\]\w\[\e[0m\] \$ "' >> $TARGETFILE
+  TARGETFILE=
+}
+
+
+function modify_bash_logout () {
+  TARGETFILE="$HOME/.bash_logout"
+  echo "Writing to $TARGETFILE"
+  if [ ! -f "$TARGETFILE" ]; then
+    echo '# ~/.bash_logout: executed by bash(1) when login shell exits.' > $TARGETFILE
+  fi
+  echo '' >> $TARGETFILE
+  echo '# Following lines were appended by PersonalCM/bash/deploy' >> $TARGETFILE
+  echo 'ssh-agent -k' >> $TARGETFILE
+  TARGETFILE=
+}
+
+
+function main () {
+  # Initialize program
+  init_dirs $0
+
+  # Modify ~/.bashrc file
+  modify_bashrc
+
+  # Modify ~/.bash_logout file
+  modify_bash_logout
+}
+
+main "$@"
+
