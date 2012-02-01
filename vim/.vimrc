@@ -21,6 +21,7 @@ set backspace=indent,eol,start
 " File-type highlighting and configuration.
 " Run :filetype (without args) to see what you may have
 " to turn on yourself, or just set them all to be sure.
+" Run :filetype detect to avoid reopening current file.
 syntax on
 filetype on
 filetype plugin on
