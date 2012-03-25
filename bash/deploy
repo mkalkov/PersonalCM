@@ -42,6 +42,12 @@ function modify_bashrc () {
   echo '# Following lines were appended by PersonalCM/bash/deploy' >> $TARGETFILE
   echo 'export PATH=${PATH}:"/cygdrive/c/Program Files/Windows NT/Accessories/":~/bin/' >> $TARGETFILE
   echo 'export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\[\e[33m\]\w\[\e[0m\] \$ "' >> $TARGETFILE
+  echo 'alias gitls="git log --oneline --color --decorate --graph -n5"'  >> $TARGETFILE
+  echo '# http://www.jukie.net/bart/blog/pimping-out-git-log' >> $TARGETFILE
+  echo 'alias gitlg="git log --graph --pretty=format:'\
+       \''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'\
+       ' --abbrev-commit --date=relative -n5"' >> $TARGETFILE
+  echo 'alias ls="ls --color=auto"' >> $TARGETFILE
   TARGETFILE=
 }
 
