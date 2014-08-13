@@ -1,10 +1,10 @@
 [user]
 	name = Mikhail Kalkov
-	email = mikhail.kalkov@purplescout.se
+	email = mikhail.kalkov@gmail.com
 [core]
 	pager =
 [color]
-	ui = auto
+	ui = always
 [push]
 	default = upstream
 [merge]
@@ -12,4 +12,4 @@
 [alias]
 	ls = log --graph --oneline --decorate -n5
 	# The following alias is derived from suggestions at http://www.jukie.net/bart/blog/pimping-out-git-log
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n5
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\n' --abbrev-commit --date=relative -n5
