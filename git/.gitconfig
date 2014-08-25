@@ -2,9 +2,10 @@
 	name = Mikhail Kalkov
 	email = mikhail.kalkov@gmail.com
 [core]
-	pager =
+	pager = less -FSXR
 [color]
 	ui = always
+	diff = always
 [push]
 	default = upstream
 [merge]
