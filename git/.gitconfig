@@ -2,6 +2,8 @@
 	name = Mikhail Kalkov
 	email = mikhail.kalkov@gmail.com
 [core]
+	autocrlf = false
+	eol = lf
 	pager = less -FSXR
 [color]
 	ui = always
