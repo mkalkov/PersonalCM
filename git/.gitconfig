@@ -12,6 +12,9 @@
 	default = upstream
 [merge]
 	conflictstyle = diff3
+	tool = vimdiff
+[diff]
+	tool = vimdiff
 [alias]
 	ls = log --graph --oneline --decorate -n5
 	# The following alias is derived from suggestions at http://www.jukie.net/bart/blog/pimping-out-git-log
