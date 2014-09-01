@@ -10,12 +10,19 @@
 	diff = always
 [push]
 	default = upstream
-[merge]
-	conflictstyle = diff3
-	tool = vimdiff
-[diff]
-	tool = vimdiff
 [alias]
 	ls = log --graph --oneline --decorate -n5
 	# The following alias is derived from suggestions at http://www.jukie.net/bart/blog/pimping-out-git-log
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\n' --abbrev-commit --date=relative -n5
+[merge]
+	conflictstyle = diff3
+	tool = diffmerge
+[diff]
+	tool = diffmerge
+[mergetool]
+	diffmerge = cmd
+	keepBackup = false
+[mergetool "diffmerge"]
+	trustExistCode = true
+[difftool "diffmerge"]
+	cmd = sgdm $LOCAL $REMOTE
