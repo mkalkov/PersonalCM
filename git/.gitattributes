@@ -1,0 +1,41 @@
+*			text=auto
+
+# Git files
+.gitattributes		text
+.gitignore		text
+
+# Eclipse files
+.classpath		text
+.factorypath		text
+.project		text
+.settings/*.component	text
+.settings/*.container	text
+.settings/*.jsdtscope	text
+.settings/*.name	text
+.settings/*.prefs	text
+.settings/*.xml		text
+
+# Maven files
+pom.xml			text
+*.properties		text
+
+# Java files
+META-INF/MANIFEST.MF	text
+*.class			binary
+*.ear			binary
+*.java			text diff=java
+*.jar			binary
+*.war			binary
+
+# Web files
+*.css			text
+*.html			text diff=html
+*.md			text
+*.xhtml			text diff=html
+
+# Miscellaneous
+*.gif			binary
+*.png			binary
+*.sql			text
+*.xml			text
+
